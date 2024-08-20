@@ -4,7 +4,7 @@ import inquirer from "inquirer";
 import chalk from "chalk";
 
 let apiLink: string =
-  "https://opentdb.com/api.php?amount=5&category=17&difficulty=easy&type=multiple";
+  "https://opentdb.com/api.php?amount=10&category=17&difficulty=easy&type=multiple";
 
 let fetchData = async (data: string) => {
   let fetchQuiz: any = await fetch(data);
@@ -26,7 +26,7 @@ let startQuiz = async () => {
 
   console.log(chalk.cyanBright(`Welcome to the quiz ${name.Fname}!`));
 
-  for (let i = 0; i < 5; i++) {
+  for (let i = 0; i < 10; i++) {
     let answers = [...Data[i].incorrect_answers, Data[i].correct_answer];
     let shuffledAnswers = answers.sort(() => Math.random() - 0.5);
     let ans = await inquirer.prompt({
@@ -46,7 +46,7 @@ let startQuiz = async () => {
   console.log(
     `Dear ${chalk.blue.bold(name.Fname)}, You score is ${chalk.green.bold(
       score
-    )} out of ${chalk.red.bold(5)}.`
+    )} out of ${chalk.red.bold(10)}.`
   );
 };
 
